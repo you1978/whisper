@@ -5,11 +5,14 @@ apt-get update && apt-get install -y ffmpeg git
 # Upgrade pip
 python -m pip install --upgrade pip
 
-# Install CPU-only torch first
-pip install torch==2.0.1+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
+# Install dependencies one by one
+pip install flask==3.0.0
+pip install flask-cors==4.0.0
+pip install gunicorn==21.2.0
+pip install ffmpeg-python==0.2.0
 
-# Install other dependencies
-pip install flask==3.0.0 flask-cors==4.0.0 gunicorn==21.2.0 ffmpeg-python==0.2.0
+# Install PyTorch CPU version
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 
-# Install whisper last
-pip install openai-whisper==20230314
+# Install whisper from GitHub
+pip install git+https://github.com/openai/whisper.git
