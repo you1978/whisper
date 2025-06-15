@@ -1,6 +1,5 @@
 import os
 import tempfile
-import whisper
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
@@ -8,9 +7,16 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 CORS(app)
 
-# Load Whisper model
-MODEL_NAME = os.environ.get('WHISPER_MODEL', 'base')
-model = whisper.load_model(MODEL_NAME)
+# Lazy load Whisper model
+MODEL_NAME = os.environ.get('WHISPER_MODEL', 'tiny')
+model = None
+
+def get_model():
+    global model
+    if model is None:
+        import whisper
+        model = whisper.load_model(MODEL_NAME)
+    return model
 
 ALLOWED_EXTENSIONS = {'mp3', 'mp4', 'mpeg', 'mpga', 'm4a', 'wav', 'webm'}
 
@@ -42,7 +48,7 @@ def transcribe():
             task = request.form.get('task', 'transcribe')  # 'transcribe' or 'translate'
             
             # Transcribe audio
-            result = model.transcribe(
+            result = get_model().transcribe(
                 tmp_file.name,
                 language=language,
                 task=task

@@ -8,11 +8,12 @@ OpenAI Whisperを使用した音声認識APIサーバー
 2. [Render](https://render.com)でNew Web Serviceを作成
 3. GitHubリポジトリを接続
 4. 設定:
-   - Build Command: `chmod +x build.sh && ./build.sh`
-   - Start Command: `gunicorn app:app --bind 0.0.0.0:$PORT --timeout 300 --workers 1`
-5. 環境変数を設定（任意）:
-   - `WHISPER_MODEL`: 使用するモデル (tiny, base, small, medium, large) デフォルト: tiny
+   - Build Command: デフォルト（`pip install -r requirements.txt`）
+   - Start Command: `./start.sh`
+5. 環境変数を設定:
+   - `WHISPER_MODEL`: tiny（メモリ制限のため）
    - `PYTHON_VERSION`: 3.11.10
+6. 無料プランの場合は512MBメモリ制限があるため、tinyモデルのみ使用可能
 
 ## Railwayへのデプロイ
 
