@@ -1,7 +1,10 @@
 flask==3.0.0
 flask-cors==4.0.0
-openai-whisper==20231117
+openai-whisper==20230314
 numpy==1.24.3
-torch==2.1.0
+torch==2.0.1
+torchaudio==2.0.2
 ffmpeg-python==0.2.0
 gunicorn==21.2.0
+setuptools==68.0.0
+wheel==0.41.0
