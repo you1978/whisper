@@ -2,5 +2,6 @@ flask==3.0.0
 flask-cors==4.0.0
 gunicorn==21.2.0
 ffmpeg-python==0.2.0
-torch==2.1.2 --index-url https://download.pytorch.org/whl/cpu
-openai-whisper==20231117
+--index-url https://download.pytorch.org/whl/cpu
+torch
+openai-whisper
