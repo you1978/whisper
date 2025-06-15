@@ -28,12 +28,12 @@ OpenAI Whisperを使用した音声認識APIサーバー
 
 ### ヘルスチェック
 ```bash
-curl https://your-app.onrender.com/health
+curl https://whisper-jbtf.onrender.com/health
 ```
 
 ### 音声ファイルの文字起こし
 ```bash
-curl -X POST https://your-app.onrender.com/transcribe \
+curl -X POST https://whisper-jbtf.onrender.com/transcribe \
   -F "audio=@your-audio-file.mp3" \
   -F "language=ja" \
   -F "task=transcribe"
