@@ -1,2 +1,8 @@
-# This file is intentionally empty
-# Build process uses build.sh instead
+flask==3.0.0
+flask-cors==4.0.0
+gunicorn==21.2.0
+ffmpeg-python==0.2.0
+torch --index-url https://download.pytorch.org/whl/cpu
+torchvision --index-url https://download.pytorch.org/whl/cpu
+torchaudio --index-url https://download.pytorch.org/whl/cpu
+git+https://github.com/openai/whisper.git
