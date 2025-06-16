@@ -5,7 +5,7 @@
   },
   "deploy": {
     "numReplicas": 1,
-    "startCommand": "python install_whisper.py && gunicorn app:app --bind 0.0.0.0:$PORT --timeout 1200 --workers 1 --worker-class gevent",
+    "startCommand": "python install_whisper.py && gunicorn app:app --bind 0.0.0.0:$PORT --timeout 1200 --workers 1",
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10
   }
