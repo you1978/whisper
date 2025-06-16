@@ -1,0 +1,8 @@
+[build]
+builder = "nixpacks"
+buildCommand = "pip install --no-cache-dir torch==2.1.2+cpu torchaudio==2.1.2+cpu -f https://download.pytorch.org/whl/torch_stable.html && pip install --no-cache-dir -r requirements-minimal.txt"
+
+[deploy]
+startCommand = "gunicorn app:app --bind 0.0.0.0:$PORT --timeout 300 --workers 1"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
