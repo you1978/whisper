@@ -1,11 +1,11 @@
 [phases.setup]
-nixPkgs = ["...", "ffmpeg", "python311"]
+nixPkgs = ["...", "ffmpeg"]
 
 [phases.install]
 cmds = [
-    "pip install --upgrade pip",
-    "pip install --no-cache-dir torch==2.1.2+cpu torchaudio==2.1.2+cpu -f https://download.pytorch.org/whl/torch_stable.html",
-    "pip install --no-cache-dir -r requirements.txt"
+    "python -m pip install --upgrade pip",
+    "python -m pip install --no-cache-dir torch==2.1.2+cpu torchaudio==2.1.2+cpu -f https://download.pytorch.org/whl/torch_stable.html",
+    "python -m pip install --no-cache-dir -r requirements.txt"
 ]
 
 [start]
